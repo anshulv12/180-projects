@@ -59,6 +59,17 @@
     @media (max-width: 760px) {
       .pair { grid-template-columns: 1fr; }
     }
+      @media print {
+      /* Make pairs stay side‑by‑side and smaller on print */
+      body { background: #fff; color: #000; }
+      section { max-width: 100%; margin: 12mm auto; border: none; }
+      .pair { display: flex !important; flex-wrap: wrap; gap: 10mm; }
+      .pair figure { flex: 0 0 calc(50% - 10mm); max-width: calc(50% - 10mm); }
+      img, video { max-width: 100% !important; height: auto !important; }
+      figure { break-inside: avoid; page-break-inside: avoid; margin: 6mm 0; }
+      h1, h2, p { break-inside: avoid; page-break-inside: avoid; }
+      @page { margin: 12mm; }
+    }
   </style>
 </head>
 <body>
